@@ -1,15 +1,21 @@
 body::before {
   display: block;
   content: '';
-  /* height: 60px; */
 }
 
 .nav-menu {
   color: white;
 }
 
-/* @media (min-width: 768px) {
-  .news-input {
-      width: 50%;
-  }
-} */
+.photo-card {
+ transition: all 0.3s;
+}
+
+.photo-card:hover {
+  transform: scale(1.1);
+  box-shadow: 4px 4px 60px -20px rgba(255,0,0,1);
+}
+
+.article-section {
+  background-color: rgb(223, 222, 222);
+}
