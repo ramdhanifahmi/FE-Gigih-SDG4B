@@ -1,0 +1,32 @@
+[
+    {
+        "id": 1,
+        "country": "Amerika Serikat",
+        "imgThumbnail": "https://images.ctfassets.net/szez98lehkfm/6R4ZxEAxDgfmDM5JswnqXV/4d0c117045433480ca9f74b2f98532af/MyIC_Inline_48050"
+    },
+    {
+        "id": 2,
+        "country": "Inggris",
+        "imgThumbnail": "https://i0.wp.com/handluggageonly.co.uk/wp-content/uploads/2016/06/kingston-university-7534591-2.jpg?resize=1024%2C678&ssl=1"
+    },
+    {
+        "id": 3,
+        "country": "Jerman",
+        "imgThumbnail": "https://i.pinimg.com/originals/2b/51/be/2b51be260ee48d145a124528590ea267.png"
+    },
+    {
+        "id": 4,
+        "country": "Jepang",
+        "imgThumbnail": "https://i.pinimg.com/236x/87/9e/8a/879e8ad025a3fe71e2a92a0f3e45e693.jpg"
+    },
+    {
+        "id": 5,
+        "country": "Australia",
+        "imgThumbnail": "https://i.pinimg.com/236x/22/5c/37/225c37699e52f22d7c96162db474c321.jpg"
+    },
+    {
+        "id": 6,
+        "country": "Korea",
+        "imgThumbnail": "https://i.pinimg.com/564x/7e/38/b1/7e38b1de1fc4a2a7094f2a241a7e750f.jpg"
+    }
+]
