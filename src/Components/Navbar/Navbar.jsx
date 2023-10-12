@@ -5,7 +5,7 @@ export const Navmenu = () => {
     <>
       <Navbar expand="lg" className="bg-light fw-semibold">
         <Container>
-            <Navbar.Brand href="#home">
+            <Navbar.Brand href="/">
                 <img
                 alt=""
                 src={reactSvg}
@@ -18,7 +18,8 @@ export const Navmenu = () => {
             <Navbar.Toggle aria-controls="basic-navbar-nav" />
             <Navbar.Collapse id="basic-navbar-nav">
                 <Nav className="mx-auto">
-                    <Nav.Link href="#home" className="me-md-5">Home</Nav.Link>
+                    <Nav.Link href="/" className="me-md-5">Home</Nav.Link>
+                    <Nav.Link href="/scholarship-detail" className="me-md-5">List Scholars</Nav.Link>
                     <Nav.Link href="#link" className="me-md-5">FAQ</Nav.Link>
                     <Nav.Link href="#link" className="me-md-5">Articles</Nav.Link>
                     <Nav.Link href="#link" className="me-md-5">About</Nav.Link>

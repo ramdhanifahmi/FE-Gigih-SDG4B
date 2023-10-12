@@ -19,3 +19,58 @@ body::before {
 .article-section {
   background-color: rgb(223, 222, 222);
 }
+.App-main {
+}
+
+.App-application {
+  list-style-type: decimal;
+}
+
+.App-footer {
+  background-color: #343a40;
+  color: white;
+}
+.App-labels {
+  width: 300px;
+  margin: 20px auto;
+}
+
+.App-label {
+  font-size: 1.2rem;
+}
+.App-title {
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+.App-text {
+  font-size: 1.2rem;
+}
+
+.App-subtitle {
+  font-size: 1.2rem;
+  font-weight: bold;
+  margin-top: 20px;
+}
+.App-badge {
+  font-size: 1.2rem;
+}
+
+.App-deadline {
+  font-size: 1.2rem;
+  font-weight: bold;
+}
+.icon-chevron-down {
+  font-size: 1.5rem;
+  color: #6c757d;
+}
+
+.list-bullet {
+  padding-left: 2rem;
+}
+
+.list-bullet li {
+  list-style-type: disc;
+  margin-left: 2rem;
+}
+
