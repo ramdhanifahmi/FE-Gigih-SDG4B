@@ -24,7 +24,7 @@ export const DestinationSection = () => {
               destData.map((data) => (
                 <div
                   key={data.id}
-                  className="p-2 d-flex justify-content-center align-items-center photo-card fw-bold fs-5" 
+                  className="p-2 d-flex justify-content-center align-items-center photo-card fw-bold fs-5 rounded-3" 
                   style={{
                     width:'305px', 
                     height:'190px', 
@@ -50,86 +50,27 @@ export const DestinationSection = () => {
             navigation
             pagination={{ clickable: true }}
           >
-            <SwiperSlide>
-              <div 
-                className="p-2 d-flex justify-content-center align-items-center text-white w-100 photo-card mb-5 mt-2 fw-bold" 
-                style={{
-                  // width:'100%', 
-                  height:'220px', 
-                  cursor:'pointer',
-                  backgroundImage:`url("https://images.ctfassets.net/szez98lehkfm/6R4ZxEAxDgfmDM5JswnqXV/4d0c117045433480ca9f74b2f98532af/MyIC_Inline_48050")`,
-                  backgroundRepeat:'no-repeat',
-                  backgroundPosition:'center',
-                  backgroundSize:'cover'
-                }}
-              >
-                Amerika Serikat
-              </div>
-            </SwiperSlide>
-            <SwiperSlide>
-              <div 
-                className="p-2 d-flex justify-content-center align-items-center text-white w-100 photo-card mb-5 mt-2 fw-bold" 
-                style={{
-                  // width:'100%', 
-                  height:'220px', 
-                  cursor:'pointer',
-                  backgroundImage:`url("https://images.ctfassets.net/szez98lehkfm/6R4ZxEAxDgfmDM5JswnqXV/4d0c117045433480ca9f74b2f98532af/MyIC_Inline_48050")`,
-                  backgroundRepeat:'no-repeat',
-                  backgroundPosition:'center',
-                  backgroundSize:'cover'
-                }}
-              >
-                Amerika Serikat
-              </div>
-            </SwiperSlide>
-            <SwiperSlide>
-              <div 
-                className="p-2 d-flex justify-content-center align-items-center text-white w-100 photo-card mb-5 mt-2" 
-                style={{
-                  // width:'100%', 
-                  height:'220px', 
-                  cursor:'pointer',
-                  backgroundImage:`url("https://images.ctfassets.net/szez98lehkfm/6R4ZxEAxDgfmDM5JswnqXV/4d0c117045433480ca9f74b2f98532af/MyIC_Inline_48050")`,
-                  backgroundRepeat:'no-repeat',
-                  backgroundPosition:'center',
-                  backgroundSize:'cover'
-                }}
-              >
-                Amerika Serikat
-              </div>
-            </SwiperSlide>
-            <SwiperSlide>
-              <div 
-                className="p-2 d-flex justify-content-center align-items-center text-white w-100 photo-card mb-5 mt-2" 
-                style={{
-                  // width:'100%', 
-                  height:'220px', 
-                  cursor:'pointer',
-                  backgroundImage:`url("https://images.ctfassets.net/szez98lehkfm/6R4ZxEAxDgfmDM5JswnqXV/4d0c117045433480ca9f74b2f98532af/MyIC_Inline_48050")`,
-                  backgroundRepeat:'no-repeat',
-                  backgroundPosition:'center',
-                  backgroundSize:'cover'
-                }}
-              >
-                Amerika Serikat
-              </div>
-            </SwiperSlide>
-            <SwiperSlide>
-              <div 
-                className="p-2 d-flex justify-content-center align-items-center text-white w-100 photo-card mb-5 mt-2" 
-                style={{
-                  // width:'100%', 
-                  height:'220px', 
-                  cursor:'pointer',
-                  backgroundImage:`url("https://images.ctfassets.net/szez98lehkfm/6R4ZxEAxDgfmDM5JswnqXV/4d0c117045433480ca9f74b2f98532af/MyIC_Inline_48050")`,
-                  backgroundRepeat:'no-repeat',
-                  backgroundPosition:'center',
-                  backgroundSize:'cover'
-                }}
-              >
-                Amerika Serikat
-              </div>
-            </SwiperSlide>
+            {
+              destData.map((data) => (
+                <SwiperSlide key={data.id}>
+                  <div 
+                    className="p-2 d-flex justify-content-center align-items-center text-white w-100 photo-card mb-5 mt-2 fw-bold" 
+                    style={{
+                      // maxWidth:'100%', 
+                      minHeight:'220px',
+                      cursor:'pointer',
+                      backgroundImage:`url(${data.imgThumbnail})`,
+                      backgroundRepeat:'no-repeat',
+                      backgroundPosition:'center',
+                      backgroundSize:'cover',
+                      boxShadow: 'boxShadow:  10px 12px 5px 2px rgba(0,0,0,0.44)'
+                    }}
+                  >
+                    {data.country}
+                  </div>
+                </SwiperSlide>
+              ))
+            }
           </Swiper>
           
 

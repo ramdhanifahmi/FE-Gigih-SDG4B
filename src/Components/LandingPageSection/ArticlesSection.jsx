@@ -22,31 +22,33 @@ export const ArticlesSection = () => {
 
           <Stack direction="horizontal" gap={4} className="text-white my-5 d-none d-md-flex flex-wrap justify-content-center align-items-center text-center">
             {
-              articleData.map((data) => (
-                <Card key={data.id} style={{ width: '21rem' }}>
-                  <Card.Img variant="top" src={data.imgThumbnail} />
+              articleData.slice(0,3).map((data) => (
+                <Card key={data.id} style={{ width: '19rem', boxShadow: '8px 8px 5px 2px rgba(0,0,0,0.44)' }}>
+                  <Card.Img variant="top" src={data.imgThumbnail} style={{height: '220px'}} />
                   <Card.Body className="text-center">
                     <Card.Title 
-                      className="my-4 fw-bold"
+                      className="mt-2 mb-3 fw-bold"
                       style={{
-                        fontSize: '18px'
+                        fontSize: '16px'
                       }}
                     >
                       {data.title}
                     </Card.Title>
                     <Card.Text 
+                      className='px-2'
                       style={{
                         overflow: 'hidden',
                         display: '-webkit-box',
-                        WebkitLineClamp: '6',
-                        lineClamp: '6',
+                        WebkitLineClamp: '5',
+                        lineClamp: '5',
                         WebkitBoxOrient: 'vertical',
-                        fontSize: '15px'
+                        fontSize: '13px',
+                        textAlign: 'justify'
                       }}
                     >
                       {data.contents}
                     </Card.Text>
-                    <Button variant="warning" className="my-3 fs-6 fw-bold text-white">Lebih Banyak</Button>
+                    <Button variant="warning" className="my-2 fw-bold text-white" style={{fontSize: '13px'}}>Lebih Banyak</Button>
                   </Card.Body>
                 </Card>
               ))
@@ -55,25 +57,26 @@ export const ArticlesSection = () => {
 
 
 
-          {/* screen size xs to md */}
-          {/* screen size xs to md */}
+          {/* screen size xs to md below */}
+          {/* screen size xs to md below */}
           <Swiper
             className="d-md-none"
             modules={[Navigation, Pagination, Scrollbar, A11y]}
-            spaceBetween={10}
+            spaceBetween={6}
             slidesPerView={2}
             pagination={{ clickable: true }}
           >
             {
               articleData.map((data) => (
-                <SwiperSlide key={data.id}>
-                  <Card style={{ minWidth: '8rem' }} className="mb-5 mt-1">
-                    <Card.Img variant="top" src={data.imgThumbnail} />
+                <SwiperSlide key={data.id} className='px-2'>
+                  <Card style={{ minWidth: '8rem', boxShadow: '8px 8px 5px 2px rgba(0,0,0,0.44)' }} className="mb-5 mt-1">
+                    <Card.Img variant="top" src={data.imgThumbnail} style={{minHeight:'140px', maxHeight:'160px'}} />
                     <Card.Body className="text-center">
-                      <Card.Title className="my-2 fw-bold fs-6">{data.title}</Card.Title>
+                      <Card.Title className="mt-1 mb-2 fw-bold" style={{ fontSize: '15px' }}>{data.title}</Card.Title>
                       <Card.Text 
+                        className='px-2'
                         style={{
-                            fontSize: '13px',
+                            fontSize: '12px',
                             overflow: 'hidden',
                             display: '-webkit-box',
                             WebkitLineClamp: '3',
@@ -83,7 +86,7 @@ export const ArticlesSection = () => {
                       >
                         {data.contents}
                       </Card.Text>
-                      <Button variant="warning" className="my-1" style={{minWidth: '10%', fontSize: '14px'}}>Lebih Banyak</Button>
+                      <Button variant="warning" className="my-1 fw-bold text-white" style={{minWidth: '10%', fontSize: '12px'}}>Lebih Banyak</Button>
                     </Card.Body>
                   </Card>
                 </SwiperSlide>
