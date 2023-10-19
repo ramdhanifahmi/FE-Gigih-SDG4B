@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 import { Button, Card, Container, Stack } from 'react-bootstrap'
 
 // import Swiper core and required modules
@@ -11,9 +12,8 @@ import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 import 'swiper/css/scrollbar';
 
-import articleData from '../../dummyData/articleData.json';
 
-export const ArticlesSection = () => {
+export const ArticlesSection = ({articleData}) => {
   return (
     <div className="p-5 article-section">
         <Container>
@@ -22,7 +22,7 @@ export const ArticlesSection = () => {
 
           <Stack direction="horizontal" gap={4} className="text-white my-5 d-none d-md-flex flex-wrap justify-content-center align-items-center text-center">
             {
-              articleData.slice(0,3).map((data) => (
+              articleData?.slice(0,3).map((data) => (
                 <Card key={data.id} style={{ width: '19rem', boxShadow: '8px 8px 5px 2px rgba(0,0,0,0.44)' }}>
                   <Card.Img variant="top" src={data.imgThumbnail} style={{height: '220px'}} />
                   <Card.Body className="text-center">
@@ -48,7 +48,7 @@ export const ArticlesSection = () => {
                     >
                       {data.contents}
                     </Card.Text>
-                    <Button variant="warning" className="my-2 fw-bold text-white" style={{fontSize: '13px'}}>Lebih Banyak</Button>
+                    <Button href="/articles" variant="warning" className="my-2 fw-bold text-white" style={{fontSize: '13px'}}>Lebih Banyak</Button>
                   </Card.Body>
                 </Card>
               ))
@@ -67,7 +67,7 @@ export const ArticlesSection = () => {
             pagination={{ clickable: true }}
           >
             {
-              articleData.map((data) => (
+              articleData?.map((data) => (
                 <SwiperSlide key={data.id} className='px-2'>
                   <Card style={{ minWidth: '8rem', boxShadow: '8px 8px 5px 2px rgba(0,0,0,0.44)' }} className="mb-5 mt-1">
                     <Card.Img variant="top" src={data.imgThumbnail} style={{minHeight:'140px', maxHeight:'160px'}} />
@@ -95,7 +95,7 @@ export const ArticlesSection = () => {
           </Swiper>
 
           <div className="d-flex justify-content-center align-items-center">
-            <Button variant="outline-success" size="sm" className="fw-semibold fs-6 mt-2 mt-md-0" style={{maxWidth: '55%', minWidth: '50%'}}>Artikel Lainnya</Button>
+            <Button href="/articles" variant="outline-success" size="sm" className="fw-semibold fs-6 mt-2 mt-md-0" style={{maxWidth: '55%', minWidth: '50%'}}>Artikel Lainnya</Button>
           </div>
 
         </Container>

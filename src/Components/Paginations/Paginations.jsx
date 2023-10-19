@@ -1,0 +1,26 @@
+/* eslint-disable react/prop-types */
+import { Pagination } from "react-bootstrap";
+
+export const Paginations = ({totalData, dataPerPage, setPage, currentPage}) => {
+    let pages = [];
+
+    for (let i = 1; i <= Math.ceil(totalData/dataPerPage); i++) {
+        pages.push(i);
+    }
+
+  return (
+    <Pagination>
+        {
+            pages.map((page, index) => (
+                <Pagination.Item 
+                    key={index} 
+                    onClick={() => setPage(page)} 
+                    active={currentPage === page}
+                >
+                    {page}
+                </Pagination.Item>
+            ))
+        }
+    </Pagination>
+  )
+}

@@ -5,17 +5,45 @@ import { NewsletterSection } from "../Components/LandingPageSection/NewsletterSe
 import { FooterSection } from "../Components/LandingPageSection/FooterSection"
 import { ArticlesSection } from "../Components/LandingPageSection/ArticlesSection"
 import { Accordion, Container } from "react-bootstrap"
+import { useEffect, useState } from "react"
+import axios from "axios"
 
 export const HomePage = () => {
+  const [destData, setDestData] = useState(null);
+  const [articleData, setArticleData] = useState(null);
+
+  useEffect(() => {
+    const loadDestination = async () => {
+      try {
+          const res = await axios.get(`http://localhost:3000/api/v1/destination/all`);
+          setDestData(res.data.data);
+      } catch (err) {
+          console.log(err)
+      }
+    }
+
+    const loadArticle = async () => {
+      try {
+          const res = await axios.get(`http://localhost:3000/api/v1/article/all`);
+          setArticleData(res.data.data);
+      } catch (err) {
+          console.log(err)
+      }
+    }
+
+    loadDestination();
+    loadArticle();
+  }, [])
+
   return (
     <>
       <Navmenu/>
 
       <HeroSection/>
 
-      <DestinationSection/>
+      <DestinationSection destData={destData}/>
 
-      <ArticlesSection/>
+      <ArticlesSection articleData={articleData}/>
 
       <NewsletterSection/>
 

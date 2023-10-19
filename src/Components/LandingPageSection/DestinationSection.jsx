@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 import { Button, Container, Stack } from "react-bootstrap"
 // import Swiper core and required modules
 import { Navigation, Pagination, Scrollbar, A11y } from 'swiper/modules';
@@ -10,9 +11,8 @@ import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 import 'swiper/css/scrollbar';
 
-import destData from '../../dummyData/destinationData.json';
 
-export const DestinationSection = () => {
+export const DestinationSection = ({destData}) => {
   return (
     <div className="p-5">
         <Container>
@@ -21,7 +21,7 @@ export const DestinationSection = () => {
 
           <Stack direction="horizontal" gap={4} className="text-white my-5 d-none d-md-flex flex-wrap justify-content-center align-items-center">
             {
-              destData.map((data) => (
+              destData?.map((data) => (
                 <div
                   key={data.id}
                   className="p-2 d-flex justify-content-center align-items-center photo-card fw-bold fs-5 rounded-3" 
@@ -51,7 +51,7 @@ export const DestinationSection = () => {
             pagination={{ clickable: true }}
           >
             {
-              destData.map((data) => (
+              destData?.map((data) => (
                 <SwiperSlide key={data.id}>
                   <div 
                     className="p-2 d-flex justify-content-center align-items-center text-white w-100 photo-card mb-5 mt-2 fw-bold" 
@@ -75,7 +75,7 @@ export const DestinationSection = () => {
           
 
           <div className="d-flex justify-content-center align-items-center">
-            <Button variant="outline-primary" size="sm" className="fw-semibold fs-6 w-50 mt-2">Lihat Lainnya</Button>
+            <Button href="/destination" variant="outline-primary" size="sm" className="fw-semibold fs-6 w-50 mt-2">Lihat Lainnya</Button>
           </div>
 
         </Container>
