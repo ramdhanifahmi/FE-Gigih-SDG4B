@@ -10,6 +10,15 @@ export const Paginations = ({totalData, dataPerPage, setPage, currentPage}) => {
 
   return (
     <Pagination>
+        <Pagination.First 
+            className={`${currentPage == 1 ? 'disabled' : ''}`}
+            onClick={() => setPage(1)} 
+        />
+        <Pagination.Prev 
+            className={`${currentPage == 1 ? 'disabled' : ''}`}  
+            onClick={() => setPage(currentPage - 1)} 
+        />
+
         {
             pages.map((page, index) => (
                 <Pagination.Item 
@@ -21,6 +30,15 @@ export const Paginations = ({totalData, dataPerPage, setPage, currentPage}) => {
                 </Pagination.Item>
             ))
         }
+
+        <Pagination.Next 
+            className={`${currentPage == pages[pages.length - 1] ? 'disabled' : ''}`} 
+            onClick={() => setPage(currentPage + 1)}
+        />
+        <Pagination.Last
+            className={`${currentPage == pages[pages.length - 1] ? 'disabled' : ''}`}
+            onClick={() => setPage(pages[pages.length - 1])}
+        />
     </Pagination>
   )
 }

@@ -30,7 +30,7 @@ export const ArticlePage = () => {
     <>
         <Navmenu/>
 
-        <div className="p-5" style={{background: "#F8E8EE"}}>
+        <div className="p-5" style={{background: "#f5ffdb"}}>
             <Container className="pt-4">
                 <h1 
                     className="text-center fw-bold pb-1"
@@ -51,7 +51,7 @@ export const ArticlePage = () => {
 
         <div className="px-5 pb-5 bg-light">
             <Container>
-                <h1 className="fw-bold text-center pt-5">Artikel Terbaru</h1>
+                <h1 className="fw-semibold text-center pt-5 fs-2">Artikel Terbaru</h1>
                 <Stack direction="horizontal" gap={5} className="text-white px-5 my-5 d-flex flex-wrap align-items-center">
                     {
                         currentPosts?.map((data) => (
