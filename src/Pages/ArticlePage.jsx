@@ -30,12 +30,15 @@ export const ArticlePage = () => {
     <>
         <Navmenu/>
 
-        <div className="p-5">
+        <div className="p-5" style={{background: "#F8E8EE"}}>
             <Container className="pt-4">
                 <h1 
-                    className="text-center fw-bold"
+                    className="text-center fw-bold pb-1"
                     style={{
-                        fontSize: "3.5rem"
+                        fontSize: "3.5rem",
+                        background: "linear-gradient(to right, #FFF700 0%, #00D5FF 100%)",
+                        WebkitBackgroundClip: "text",
+                        WebkitTextFillColor: "transparent"
                     }}
                 >
                     Temukan Artikel <span style={{fontStyle:"italic"}}>Insightful</span> agar Kamu <br/>Semakin <span style={{fontStyle:"italic"}}>Thoughtful</span>
@@ -48,7 +51,7 @@ export const ArticlePage = () => {
 
         <div className="px-5 pb-5 bg-light">
             <Container>
-                <h1 className="fw-bold text-center mt-5 pt-5">Artikel Terbaru</h1>
+                <h1 className="fw-bold text-center pt-5">Artikel Terbaru</h1>
                 <Stack direction="horizontal" gap={5} className="text-white px-5 my-5 d-flex flex-wrap align-items-center">
                     {
                         currentPosts?.map((data) => (
