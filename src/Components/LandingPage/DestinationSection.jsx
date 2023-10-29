@@ -29,14 +29,14 @@ export const DestinationSection = ({destData}) => {
                     width:'305px', 
                     height:'190px', 
                     cursor:'pointer',
-                    backgroundImage:`url(${data.imgThumbnail})`,
+                    backgroundImage:`url(${data.image})`,
                     backgroundRepeat:'no-repeat',
                     backgroundPosition:'center',
                     backgroundSize:'cover',
                     textShadow:'2px 2px black'
                   }}
                 >
-                  {data.country}
+                  {data.name}
                 </div>
               ))
             }
@@ -56,10 +56,9 @@ export const DestinationSection = ({destData}) => {
                   <div 
                     className="p-2 d-flex justify-content-center align-items-center text-white w-100 photo-card mb-5 mt-2 fw-bold" 
                     style={{
-                      // maxWidth:'100%', 
                       minHeight:'220px',
                       cursor:'pointer',
-                      backgroundImage:`url(${data.imgThumbnail})`,
+                      backgroundImage:`url(${data.image})`,
                       backgroundRepeat:'no-repeat',
                       backgroundPosition:'center',
                       backgroundSize:'cover',
