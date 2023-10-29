@@ -11,9 +11,12 @@ import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 import 'swiper/css/scrollbar';
+import { useNavigate } from 'react-router-dom';
 
 
 export const ArticlesSection = ({articleData}) => {
+  const navigate = useNavigate();
+  
   return (
     <div className="p-5 article-section">
         <Container>
@@ -23,8 +26,8 @@ export const ArticlesSection = ({articleData}) => {
           <Stack direction="horizontal" gap={4} className="text-white my-5 d-none d-md-flex flex-wrap justify-content-center align-items-center text-center">
             {
               articleData?.slice(0,3).map((data) => (
-                <Card key={data.id} style={{ width: '19rem', boxShadow: '8px 8px 5px 2px rgba(0,0,0,0.44)' }}>
-                  <Card.Img variant="top" src={data.imgThumbnail} style={{height: '220px'}} />
+                <Card key={data._id} style={{ width: '19rem', maxHeight:'27rem', boxShadow: '8px 8px 5px 2px rgba(0,0,0,0.44)' }}>
+                  <Card.Img variant="top" src={data.image} style={{height: '220px'}} />
                   <Card.Body className="text-center">
                     <Card.Title 
                       className="mt-2 mb-3 fw-bold"
@@ -46,9 +49,9 @@ export const ArticlesSection = ({articleData}) => {
                         textAlign: 'justify'
                       }}
                     >
-                      {data.contents}
+                      {data.synopsis}
                     </Card.Text>
-                    <Button href="/articles" variant="warning" className="my-2 fw-bold text-white" style={{fontSize: '13px'}}>Lebih Banyak</Button>
+                    <Button variant="warning" onClick={() => navigate(`/articles/${data._id}`)} className="my-2 fw-bold text-white" style={{fontSize: '13px'}}>Lebih Banyak</Button>
                   </Card.Body>
                 </Card>
               ))
@@ -56,9 +59,6 @@ export const ArticlesSection = ({articleData}) => {
           </Stack>
 
 
-
-          {/* screen size xs to md below */}
-          {/* screen size xs to md below */}
           <Swiper
             className="d-md-none"
             modules={[Navigation, Pagination, Scrollbar, A11y]}
@@ -68,9 +68,9 @@ export const ArticlesSection = ({articleData}) => {
           >
             {
               articleData?.map((data) => (
-                <SwiperSlide key={data.id} className='px-2'>
+                <SwiperSlide key={data._id} className='px-2'>
                   <Card style={{ minWidth: '8rem', boxShadow: '8px 8px 5px 2px rgba(0,0,0,0.44)' }} className="mb-5 mt-1">
-                    <Card.Img variant="top" src={data.imgThumbnail} style={{minHeight:'140px', maxHeight:'160px'}} />
+                    <Card.Img variant="top" src={data.image} style={{minHeight:'140px', maxHeight:'160px'}} />
                     <Card.Body className="text-center">
                       <Card.Title className="mt-1 mb-2 fw-bold" style={{ fontSize: '15px' }}>{data.title}</Card.Title>
                       <Card.Text 
@@ -84,9 +84,9 @@ export const ArticlesSection = ({articleData}) => {
                             WebkitBoxOrient: 'vertical'
                         }}
                       >
-                        {data.contents}
+                        {data.synopsis}
                       </Card.Text>
-                      <Button variant="warning" className="my-1 fw-bold text-white" style={{minWidth: '10%', fontSize: '12px'}}>Lebih Banyak</Button>
+                      <Button variant="warning" onClick={() => navigate(`/articles/${data._id}`)} className="my-1 fw-bold text-white" style={{minWidth: '10%', fontSize: '12px'}}>Lebih Banyak</Button>
                     </Card.Body>
                   </Card>
                 </SwiperSlide>
@@ -95,7 +95,7 @@ export const ArticlesSection = ({articleData}) => {
           </Swiper>
 
           <div className="d-flex justify-content-center align-items-center">
-            <Button href="/articles" variant="outline-success" size="sm" className="fw-semibold fs-6 mt-2 mt-md-0" style={{maxWidth: '55%', minWidth: '50%'}}>Artikel Lainnya</Button>
+            <Button onClick={() => navigate(`/articles`)} variant="outline-success" size="sm" className="fw-semibold fs-6 mt-2 mt-md-0" style={{maxWidth: '55%', minWidth: '50%'}}>Artikel Lainnya</Button>
           </div>
 
         </Container>
