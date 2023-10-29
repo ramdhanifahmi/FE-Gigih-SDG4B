@@ -4,20 +4,23 @@ import { Navmenu } from "../Components/Navbar/Navbar"
 import { useEffect, useState } from "react";
 import axios from "axios";
 import { Paginations } from "../Components/Paginations/Paginations";
+import { useNavigate } from "react-router-dom";
 
 export const ArticlePage = () => {
     const [articlesData, setArticlesData] = useState([]);
     const [currentPage, setCurrentPage] = useState(1);
     const [postsPerPage, setPostsPerPage] = useState(9);
 
+    const navigate = useNavigate();
+
     useEffect(() => {
         const loadArticle = async () => {
-        try {
-            const res = await axios.get(`http://localhost:3000/api/v1/article/all`);
-            setArticlesData(res.data.data);
-        } catch (err) {
-            console.log(err)
-        }
+            try {
+                const res = await axios.get(`http://localhost:3000/api/v1/article/all`);
+                setArticlesData(res.data.data);
+            } catch (err) {
+                console.log(err)
+            }
         }
 
         loadArticle();
@@ -52,11 +55,15 @@ export const ArticlePage = () => {
         <div className="px-5 pb-5 bg-light">
             <Container>
                 <h1 className="fw-semibold text-center pt-5 fs-2">Artikel Terbaru</h1>
-                <Stack direction="horizontal" gap={5} className="text-white px-5 my-5 d-flex flex-wrap align-items-center">
+                <Stack direction="horizontal" gap={5} className="text-white my-5 d-flex flex-wrap justify-content-center align-items-center">
                     {
                         currentPosts?.map((data) => (
-                            <Card key={data.id} style={{ width: '19rem', boxShadow: '8px 8px 5px 2px rgba(0,0,0,0.44)', cursor: 'pointer' }}>
-                                <Card.Img variant="top" src={data.imgThumbnail} style={{height: '220px'}} />
+                            <Card 
+                                key={data._id} 
+                                style={{ width: '19rem', height:'27rem', boxShadow: '8px 8px 5px 2px rgba(0,0,0,0.44)', cursor: 'pointer' }}
+                                onClick={() => navigate(`/articles/${data._id}`)}
+                            >
+                                <Card.Img variant="top" src={data.image} style={{height: '220px'}} />
                                 <Card.Body className="pb-5">
                                     <Card.Title 
                                         className="mt-2 mb-3 fw-bold"
@@ -78,7 +85,7 @@ export const ArticlePage = () => {
                                             textAlign: 'justify'
                                         }}
                                     >
-                                        {data.contents}
+                                        {data.synopsis}
                                     </Card.Text>
                                 </Card.Body>
                             </Card>
