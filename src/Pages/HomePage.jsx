@@ -1,29 +1,53 @@
 import { Navmenu } from "../Components/Navbar/Navbar"
-import { HeroSection } from "../Components/LandingPageSection/HeroSection"
-import { DestinationSection } from "../Components/LandingPageSection/DestinationSection"
-import { NewsletterSection } from "../Components/LandingPageSection/NewsletterSection"
-import { FooterSection } from "../Components/LandingPageSection/FooterSection"
-import { ArticlesSection } from "../Components/LandingPageSection/ArticlesSection"
-import { Container } from "react-bootstrap"
+import { HeroSection } from "../Components/LandingPage/HeroSection"
+import { DestinationSection } from "../Components/LandingPage/DestinationSection"
+import { NewsletterSection } from "../Components/LandingPage/NewsletterSection"
+import { FooterSection } from "../Components/LandingPage/FooterSection"
+import { ArticlesSection } from "../Components/LandingPage/ArticlesSection"
+import { useEffect, useState } from "react"
+import { FaqSection } from "../Components/LandingPage/FaqSection"
+import axios from "axios"
 
 export const HomePage = () => {
+  const [destData, setDestData] = useState(null);
+  const [articleData, setArticleData] = useState(null);
+
+  useEffect(() => {
+    const loadDestination = async () => {
+      try {
+          const res = await axios.get(`http://localhost:3000/api/v1/country/all`);
+          setDestData(res.data.data);
+      } catch (err) {
+          console.log(err)
+      }
+    }
+
+    const loadArticle = async () => {
+      try {
+          const res = await axios.get(`http://localhost:3000/api/v1/article/all`);
+          setArticleData(res.data.data);
+      } catch (err) {
+          console.log(err)
+      }
+    }
+
+    loadDestination();
+    loadArticle();
+  }, [])
+
   return (
     <>
       <Navmenu/>
 
       <HeroSection/>
 
-      <DestinationSection/>
+      <DestinationSection destData={destData}/>
 
-      <ArticlesSection/>
+      <ArticlesSection articleData={articleData}/>
 
       <NewsletterSection/>
 
-      <div className="p-5 d-md-none">
-        <Container>
-          
-        </Container>
-      </div>
+      <FaqSection/>
 
       <FooterSection/>
     </>
