@@ -4,8 +4,12 @@ import reactSvg from "../../assets/react.svg";
 
 export const FooterSection = () => {
   return (
-    <div className="p-2 bg-dark text-white position-relative">
-        <Container fluid>
+      <div className="p-2 bg-dark text-white position-relative" style={{
+          overflow: 'hidden',
+          display: 'flex',
+          flexDirection: 'column',
+      }}>
+        <Container>
             <Container className="py-4">
                 <Row>
                     <Col md={6}>
