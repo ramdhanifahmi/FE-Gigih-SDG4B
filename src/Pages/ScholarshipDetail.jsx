@@ -1,7 +1,7 @@
 import React, {useEffect, useState} from 'react';
 import {Container, Row, Col, Image, Nav, Navbar, Button, Breadcrumb, ListGroup, Card, Badge} from 'react-bootstrap';
 import {Navmenu} from "../Components/Navbar/Navbar.jsx";
-import {FooterSection} from "../Components/LandingPageSection/FooterSection.jsx";
+import {FooterSection} from "../Components/LandingPage/FooterSection.jsx";
 import {ChevronDown, ChevronUp} from 'react-bootstrap-icons';
 import {useParams} from "react-router-dom";
 import axios from "axios";

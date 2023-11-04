@@ -2,7 +2,7 @@ import {Container, Row, Col, Pagination, Form} from 'react-bootstrap';
 import ScholarCard from "../Components/Scholarship/ScholarshipCard.jsx";
 import {Navmenu} from "../Components/Navbar/Navbar.jsx";
 import React, {useEffect, useState} from "react";
-import {FooterSection} from "../Components/LandingPageSection/FooterSection.jsx";
+import {FooterSection} from "../Components/LandingPage/FooterSection.jsx";
 
 const ScholarshipList = () => {
     const [scholars, setScholars] = useState([]);

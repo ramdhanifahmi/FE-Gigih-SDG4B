@@ -22,14 +22,10 @@ export const Navmenu = () => {
             <Navbar.Collapse id="basic-navbar-nav">
                 <Nav className="mx-auto">
                     <Nav.Link onClick={() => navigate('/')} className="me-md-5">Home</Nav.Link>
+                    <Nav.Link href="/scholar" className="me-md-5">List Scholars</Nav.Link>
                     <Nav.Link href="#faq" className="me-md-5">FAQ</Nav.Link>
                     <Nav.Link onClick={() => navigate('/articles')} className="me-md-5">Articles</Nav.Link>
                     <Nav.Link onClick={() => navigate('/about')} className="me-md-5">About</Nav.Link>
-                    <Nav.Link href="/" className="me-md-5">Home</Nav.Link>
-                    <Nav.Link href="/scholar" className="me-md-5">List Scholars</Nav.Link>
-                    <Nav.Link href="#link" className="me-md-5">FAQ</Nav.Link>
-                    <Nav.Link href="#link" className="me-md-5">Articles</Nav.Link>
-                    <Nav.Link href="#link" className="me-md-5">About</Nav.Link>
                     {/* <Nav.Link href="#link" className="d-md-none me-md-5">Contact Us</Nav.Link> */}
                 </Nav>
                 <Button variant="outline-warning fw-bold" className="rounded-pill">Contact Us</Button>
