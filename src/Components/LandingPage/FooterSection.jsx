@@ -1,34 +1,29 @@
-import {Col, Container, Image, Nav, Row} from "react-bootstrap"
+import {Col, Container, Image, Nav, Row, Stack} from "react-bootstrap"
 import reactSvg from "../../assets/react.svg";
 import { useNavigate } from "react-router-dom";
 
 export const FooterSection = () => {
     const navigate = useNavigate();
   return (
-      <div className="p-2 bg-dark text-white position-relative" style={{
-          overflow: 'hidden',
-          display: 'flex',
-          flexDirection: 'column',
-      }}>
-        <Container>
-            <Container className="py-4">
+      <div className="pt-5 bg-dark text-white">
+            <Container className="">
                 <Row>
-                    <Col md={6}>
-                        <Image src={reactSvg} alt="React logo" />
-                        <p>Platform online yang menyediakan informasi untuk mencari beasiswa di luar negeri.</p>
+                    <Col xs={12} md={6} className="d-none d-md-flex align-items-center justify-content-center ">
+                        <Stack direction="horizontal" gap={3}>
+                            <Image src={reactSvg} alt="React logo" className="" />
+                            <p className="my-auto">Menyediakan informasi untuk mencari beasiswa di luar negeri.</p>
+                        </Stack>
                     </Col>
-                    <Col md={6} className="text-end">
-                        <Nav className="justify-content-end">
+                    <Col xs={12} md={6} className="d-flex justify-content-center">
+                        <Nav className="justify-content-center">
                             <Nav.Item><Nav.Link onClick={() => navigate('/about')}>Tentang Kami</Nav.Link></Nav.Item>
-                            <Nav.Item><Nav.Link href="#">Kontak Kami</Nav.Link></Nav.Item>
                             <Nav.Item><Nav.Link href="#">Syarat dan Ketentuan</Nav.Link></Nav.Item>
                             <Nav.Item><Nav.Link href="#">Kebijakan Privasi</Nav.Link></Nav.Item>
                         </Nav>
                     </Col>
                 </Row>
+                <p className="text-center mt-4">Copyright &copy; 2023 Generasi GIGIH SDG4B</p>
             </Container>
-            <p className="lead text-center">Copyright &copy; 2023 Generasi GIGIH SDG4B</p>
-        </Container>
-      </div>
+    </div>
   )
 }
