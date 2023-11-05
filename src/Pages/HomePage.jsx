@@ -15,7 +15,7 @@ export const HomePage = () => {
   useEffect(() => {
     const loadDestination = async () => {
       try {
-          const res = await axios.get(`http://localhost:3000/api/v1/country/all`);
+          const res = await axios.get(`http://localhost:3000/api/country/all`);
           setDestData(res.data.data);
       } catch (err) {
           console.log(err)
@@ -24,7 +24,7 @@ export const HomePage = () => {
 
     const loadArticle = async () => {
       try {
-          const res = await axios.get(`http://localhost:3000/api/v1/article/all`);
+          const res = await axios.get(`http://localhost:3000/api/article/all`);
           setArticleData(res.data.data);
       } catch (err) {
           console.log(err)
