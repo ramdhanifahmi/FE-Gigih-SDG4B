@@ -25,8 +25,6 @@ export const Navmenu = () => {
                     <Nav.Link href="/scholar" className="me-md-5">List Scholars</Nav.Link>
                     <Nav.Link href="#faq" className="me-md-5">FAQ</Nav.Link>
                     <Nav.Link onClick={() => navigate('/articles')} className="me-md-5">Articles</Nav.Link>
-                    <Nav.Link onClick={() => navigate('/about')} className="me-md-5">About</Nav.Link>
-                    {/* <Nav.Link href="#link" className="d-md-none me-md-5">Contact Us</Nav.Link> */}
                 </Nav>
                 <Button variant="outline-warning fw-bold" className="rounded-pill">Contact Us</Button>
             </Navbar.Collapse>
