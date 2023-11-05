@@ -1,8 +1,11 @@
 import { Button, Container } from 'react-bootstrap'
 import GradIcon from "../../assets/graduate.svg"
+import { useNavigate } from 'react-router-dom';
 
 
 export const HeroSection = () => {
+    const navigate = useNavigate();
+    
   return (
     <div className="bg-dark text-light p-5 pb-lg-0 text-center text-sm-start">
         <Container>
@@ -14,7 +17,7 @@ export const HeroSection = () => {
                     <p className="lead my-4 pe-lg-5 me-lg-5">
                         Kami berfokus untuk menyediakan informasi kepada para pelajar Indonesia yang memiliki impian untuk bisa belajar diluar negeri.
                     </p>
-                    <Button className="btn btn-primary btn-md fw-semibold" data-bs-toggle="" data-bs-target="">
+                    <Button onClick={() => navigate('/scholar')} className="btn btn-primary btn-md fw-semibold" data-bs-toggle="" data-bs-target="">
                         Mulai Cari Tahu
                     </Button>
                 </div>

@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 import {Container, Row, Col, Pagination, Form} from 'react-bootstrap';
 import ScholarCard from "../Components/Scholarship/ScholarshipCard.jsx";
 import {Navmenu} from "../Components/Navbar/Navbar.jsx";

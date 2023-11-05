@@ -10,9 +10,12 @@ import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 import 'swiper/css/scrollbar';
+import { useNavigate } from "react-router-dom";
 
 
 export const DestinationSection = ({destData}) => {
+  const navigate = useNavigate();
+
   return (
     <div className="p-5">
         <Container>
@@ -74,7 +77,7 @@ export const DestinationSection = ({destData}) => {
           
 
           <div className="d-flex justify-content-center align-items-center">
-            <Button href="/destination" variant="outline-primary" size="sm" className="fw-semibold fs-6 w-50 mt-2">Lihat Lainnya</Button>
+            <Button onClick={() => navigate('/scholar')} variant="outline-primary" size="sm" className="fw-semibold fs-6 w-50 mt-2">Lihat Lainnya</Button>
           </div>
 
         </Container>
