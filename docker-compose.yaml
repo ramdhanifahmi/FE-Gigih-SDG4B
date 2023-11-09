@@ -1,0 +1,13 @@
+version: '3.8'
+services:
+  backend:
+    container_name: backend_scholar
+    image: ramdhanifahmi/be-scholarweb:1.0.0
+    ports:
+      - "3000:3000"
+
+  frontend:
+    container_name: frontend_scholar
+    image: ramdhanifahmi/fe-scholarweb:1.0.0
+    ports:
+      - "3001:3001"
