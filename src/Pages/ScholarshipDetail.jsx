@@ -32,12 +32,11 @@ const ScholarshipDetail = () => {
     };
 
     const { slug } = useParams();
-    console.log("Slug:", slug);
     const [scholarshipData, setScholarshipData] = useState(null);
 
     useEffect(() => {
         // Use Axios to fetch scholarship details from your API based on the provided slug
-        axios.get(`http://localhost:3000/api/scholar/${slug}`)
+        axios.get(`${import.meta.env.VITE_CLIENT_URL}/api/scholar/${slug}`)
             .then(response => {
                 // Assuming your data is in the response.data field
                 console.log(JSON.stringify(response.data))

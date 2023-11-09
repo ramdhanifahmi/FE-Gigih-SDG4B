@@ -12,7 +12,7 @@ export const ArticleDetail = () => {
     useEffect(() => {
       const loadArticle = async () => {
         try {
-            const res = await axios.get(`http://localhost:3000/api/article/${id}`);
+            const res = await axios.get(`${import.meta.env.VITE_CLIENT_URL}/api/article/${id}`);
             setArticle(res.data.data);
         } catch (err) {
             console.log(err)

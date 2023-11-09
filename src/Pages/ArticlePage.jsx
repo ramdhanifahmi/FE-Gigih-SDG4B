@@ -16,7 +16,7 @@ export const ArticlePage = () => {
     useEffect(() => {
         const loadArticle = async () => {
             try {
-                const res = await axios.get(`http://localhost:3000/api/article/all`);
+                const res = await axios.get(`${import.meta.env.VITE_CLIENT_URL}/api/article/all`);
                 setArticlesData(res.data.data);
             } catch (err) {
                 console.log(err)
@@ -35,7 +35,7 @@ export const ArticlePage = () => {
 
         <div className="p-5" style={{background: "#f5ffdb"}}>
             <Container className="pt-4">
-                <h1 
+                <h1
                     className="text-center fw-bold pb-1"
                     style={{
                         fontSize: "3.5rem",
@@ -58,14 +58,14 @@ export const ArticlePage = () => {
                 <Stack direction="horizontal" gap={5} className="text-white my-5 d-flex flex-wrap justify-content-center align-items-center">
                     {
                         currentPosts?.map((data) => (
-                            <Card 
-                                key={data._id} 
+                            <Card
+                                key={data._id}
                                 style={{ width: '19rem', height:'27rem', boxShadow: '8px 8px 5px 2px rgba(0,0,0,0.44)', cursor: 'pointer' }}
                                 onClick={() => navigate(`/articles/${data._id}`)}
                             >
                                 <Card.Img variant="top" src={data.image} style={{height: '220px'}} />
                                 <Card.Body className="pb-5">
-                                    <Card.Title 
+                                    <Card.Title
                                         className="mt-2 mb-3 fw-bold"
                                         style={{
                                             fontSize: '16px'
@@ -73,7 +73,7 @@ export const ArticlePage = () => {
                                     >
                                         {data.title}
                                     </Card.Title>
-                                    <Card.Text 
+                                    <Card.Text
                                         className='px-1'
                                         style={{
                                             overflow: 'hidden',
@@ -94,11 +94,11 @@ export const ArticlePage = () => {
                 </Stack>
 
                 <div className="d-flex justify-content-center">
-                    <Paginations 
-                        totalData={articlesData.length} 
-                        dataPerPage={postsPerPage} 
-                        setPage={setCurrentPage} 
-                        currentPage={currentPage} 
+                    <Paginations
+                        totalData={articlesData.length}
+                        dataPerPage={postsPerPage}
+                        setPage={setCurrentPage}
+                        currentPage={currentPage}
                     />
                 </div>
             </Container>

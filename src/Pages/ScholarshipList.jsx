@@ -1,9 +1,9 @@
-/* eslint-disable no-unused-vars */
 import {Container, Row, Col, Pagination, Form} from 'react-bootstrap';
 import ScholarCard from "../Components/Scholarship/ScholarshipCard.jsx";
 import {Navmenu} from "../Components/Navbar/Navbar.jsx";
 import React, {useEffect, useState} from "react";
 import {FooterSection} from "../Components/LandingPage/FooterSection.jsx";
+import axios from "axios";
 
 const ScholarshipList = () => {
     const [scholars, setScholars] = useState([]);
@@ -12,14 +12,25 @@ const ScholarshipList = () => {
     const [search, setSearch] = useState('');
     const [sort, setSort] = useState('');
 
-    useEffect(() => {
-        const fetchScholars = async () => {
-            const response = await fetch(`http://localhost:3000/api/scholar?page=${page}&title=${search}&sort=${sort}`);
-            const data = await response.json();
+
+    const fetchScholars = async () => {
+        try {
+            const response = await axios.get(`${import.meta.env.VITE_CLIENT_URL}/api/scholar`, {
+                params: {
+                    page,
+                    title: search,
+                    sort,
+                },
+            });
+            const data = response.data;
             setScholars(data.data);
             setTotalPages(data.pagination.totalPages);
-        };
+        } catch (error) {
+            console.error('Error fetching scholars:', error);
+        }
+    };
 
+    useEffect(() => {
         fetchScholars();
     }, [page, search, sort]);
 
