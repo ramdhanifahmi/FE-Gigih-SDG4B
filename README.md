@@ -47,7 +47,7 @@ In this instruction I will use command compose v2. For furthest information you 
    ```
 5. The Client should now be running locally on `http://localhost:3001`
 
-### 2. Running locally
+### 3. Running locally
 1. Install the required dependencies by running in terminal:
    ```
    npm install
@@ -58,3 +58,7 @@ In this instruction I will use command compose v2. For furthest information you 
    npm run dev
    ```
 3. The Client should now be running locally on `http://localhost:3001`
+
+
+**Note to Grader:**
+if you encounter any issues, please feel free to contact me for assistance: fahmiramdhani.st@gmail.com.
