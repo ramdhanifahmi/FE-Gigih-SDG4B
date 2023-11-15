@@ -23,7 +23,7 @@ export const Navmenu = () => {
                 <Nav className="mx-auto">
                     <Nav.Link onClick={() => navigate('/')} className="me-md-5">Home</Nav.Link>
                     <Nav.Link href="/scholar" className="me-md-5">List Scholars</Nav.Link>
-                    <Nav.Link href="#faq" className="me-md-5">FAQ</Nav.Link>
+                    <Nav.Link href="#faq" onClick={() => navigate('/')} className="me-md-5">FAQ</Nav.Link>
                     <Nav.Link onClick={() => navigate('/articles')} className="me-md-5">Articles</Nav.Link>
                 </Nav>
                 <Button variant="outline-warning fw-bold" className="rounded-pill">Contact Us</Button>
