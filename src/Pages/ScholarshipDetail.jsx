@@ -67,7 +67,7 @@ const ScholarshipDetail = () => {
                     <Container>
                         <Breadcrumb className="my-4">
                             <Breadcrumb.Item href="/">Home</Breadcrumb.Item>
-                            <Breadcrumb.Item href="#">Scholars</Breadcrumb.Item>
+                            <Breadcrumb.Item href="/scholar">Scholars</Breadcrumb.Item>
                             <Breadcrumb.Item active>{scholarshipData.title}</Breadcrumb.Item>
                         </Breadcrumb>
                         <Row className="justify-content-center">
