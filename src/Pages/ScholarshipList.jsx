@@ -4,6 +4,7 @@ import {Navmenu} from "../Components/Navbar/Navbar.jsx";
 import React, {useEffect, useState} from "react";
 import {FooterSection} from "../Components/LandingPage/FooterSection.jsx";
 import axios from "axios";
+import {useLocation} from "react-router-dom";
 
 const ScholarshipList = () => {
     const [scholars, setScholars] = useState([]);
@@ -12,6 +13,11 @@ const ScholarshipList = () => {
     const [search, setSearch] = useState('');
     const [sort, setSort] = useState('');
 
+    const location = useLocation();
+
+    const countryParam = new URLSearchParams(location.search).get('country');
+
+    const [country, setCountry] = useState(countryParam || '');
 
     const fetchScholars = async () => {
         try {
@@ -20,6 +26,7 @@ const ScholarshipList = () => {
                     page,
                     title: search,
                     sort,
+                    country,
                 },
             });
             const data = response.data;
@@ -29,6 +36,11 @@ const ScholarshipList = () => {
             console.error('Error fetching scholars:', error);
         }
     };
+
+    useEffect(() => {
+        // Update the country state when the URL parameter changes
+        setCountry(countryParam || '');
+    }, [countryParam]);
 
     useEffect(() => {
         fetchScholars();

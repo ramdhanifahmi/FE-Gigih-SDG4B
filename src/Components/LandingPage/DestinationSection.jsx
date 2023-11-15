@@ -10,11 +10,15 @@ import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 import 'swiper/css/scrollbar';
-import { useNavigate } from "react-router-dom";
+import {Link, useNavigate} from "react-router-dom";
 
 
 export const DestinationSection = ({destData}) => {
   const navigate = useNavigate();
+
+  const navigateToScholar = (country) => {
+    navigate(`/scholar?country=${country}`);
+  };
 
   return (
     <div className="p-5">
@@ -23,26 +27,25 @@ export const DestinationSection = ({destData}) => {
           <p className="text-center fw-semibold lead">Berikut ini pencarian paling populer untuk kamu</p>
 
           <Stack direction="horizontal" gap={4} className="text-white my-5 d-none d-md-flex flex-wrap justify-content-center align-items-center">
-            {
-              destData?.map((data) => (
+            {destData?.map((data) => (
                 <div
-                  key={data.id}
-                  className="p-2 d-flex justify-content-center align-items-center photo-card fw-bold fs-5 rounded-3" 
-                  style={{
-                    width:'305px', 
-                    height:'190px', 
-                    cursor:'pointer',
-                    backgroundImage:`url(${data.image})`,
-                    backgroundRepeat:'no-repeat',
-                    backgroundPosition:'center',
-                    backgroundSize:'cover',
-                    textShadow:'2px 2px black'
-                  }}
+                    key={data.id}
+                    onClick={() => navigateToScholar(data.name)}
+                    className="p-2 d-flex justify-content-center align-items-center photo-card fw-bold fs-5 rounded-3"
+                    style={{
+                      width: '305px',
+                      height: '190px',
+                      cursor: 'pointer',
+                      backgroundImage: `url(${data.image})`,
+                      backgroundRepeat: 'no-repeat',
+                      backgroundPosition: 'center',
+                      backgroundSize: 'cover',
+                      textShadow: '2px 2px black',
+                    }}
                 >
                   {data.name}
                 </div>
-              ))
-            }
+            ))}
           </Stack>
 
           <Swiper
@@ -56,8 +59,8 @@ export const DestinationSection = ({destData}) => {
             {
               destData?.map((data) => (
                 <SwiperSlide key={data.id}>
-                  <div 
-                    className="p-2 d-flex justify-content-center align-items-center text-white w-100 photo-card mb-5 mt-2 fw-bold" 
+                  <div
+                    className="p-2 d-flex justify-content-center align-items-center text-white w-100 photo-card mb-5 mt-2 fw-bold"
                     style={{
                       minHeight:'220px',
                       cursor:'pointer',
@@ -74,7 +77,7 @@ export const DestinationSection = ({destData}) => {
               ))
             }
           </Swiper>
-          
+
 
           <div className="d-flex justify-content-center align-items-center">
             <Button onClick={() => navigate('/scholar')} variant="outline-primary" size="sm" className="fw-semibold fs-6 w-50 mt-2">Lihat Lainnya</Button>
