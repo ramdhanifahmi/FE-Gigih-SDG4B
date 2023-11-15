@@ -26,7 +26,7 @@ export const Navmenu = () => {
                     <Nav.Link href="#faq" onClick={() => navigate('/')} className="me-md-5">FAQ</Nav.Link>
                     <Nav.Link onClick={() => navigate('/articles')} className="me-md-5">Articles</Nav.Link>
                 </Nav>
-                <Button variant="outline-warning fw-bold" className="rounded-pill">Contact Us</Button>
+                <Button variant="outline-warning fw-bold" href="#contact" onClick={() => navigate('/about')} className="rounded-pill">Contact Us</Button>
             </Navbar.Collapse>
         </Container>
       </Navbar>
