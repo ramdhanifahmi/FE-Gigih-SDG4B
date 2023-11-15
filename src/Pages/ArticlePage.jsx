@@ -47,7 +47,7 @@ export const ArticlePage = () => {
                     Temukan Artikel <span style={{fontStyle:"italic"}}>Insightful</span> agar Kamu <br/>Semakin <span style={{fontStyle:"italic"}}>Thoughtful</span>
                 </h1>
                 <p className="text-center text-secondary">
-                    Gali potensi yang selama ini kamu yakini bersama mentor yang ahli dibidangnya, <br/>kamu bakal dipandu sampai bener bener paham.
+                    Gali informasi yang selama ini kamu cari bersama broaders, <br/>kamu bakal disajikan hal-hal menarik tanpa henti.
                 </p>
             </Container>
         </div>
